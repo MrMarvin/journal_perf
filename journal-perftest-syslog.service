@@ -1,0 +1,8 @@
+[Unit]
+Description=Journald performance tester by spamming log lines via SYSLOG.
+[Service]
+Restart=no
+LimitNOFILE=infinity
+TasksMax=infinity
+SyslogIdentifier=journal-performance-tester-syslog
+ExecStart=/bin/bash -c 'time /home/centos/journal_perf/journal_perf syslog $(uuidgen) 100000'

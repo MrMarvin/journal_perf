@@ -1,0 +1,8 @@
+[Unit]
+Description=Journald performance tester by spamming log lines via STDOUT.
+[Service]
+Restart=no
+LimitNOFILE=infinity
+TasksMax=infinity
+SyslogIdentifier=journal-performance-tester-stdout
+ExecStart=/bin/bash -c 'time /home/centos/journal_perf/journal_perf stdout $(uuidgen) 100000'
